@@ -1,0 +1,17 @@
+nav{
+	background-color: darkcyan;
+	margin-bottom: 50px;
+}
+span.titulo{
+	font-size: 1.8em;
+}
+.card .card-image img{
+	max-height: 300px;
+}
+.card .btn{
+	float: right;
+	margin: 5px;
+}
+#form-convidado{
+	display: none;
+}

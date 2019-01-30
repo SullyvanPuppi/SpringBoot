@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/header :: header">
+<meta charset="UTF-8">
+</head>
+<body>
+	<nav>
+	   <div class="nav-wrapper">
+	   		<span class="titulo">Eventos App - </span>
+	     <span>Evento <span th:text="${evento.nome}"></span>
+	     <ul class="right hide-on-med-and-down">
+	     	<li><a href="/eventos"><i class="material-icons left">list</i>Lista de eventos</a></li>
+	      	<li><a href="/cadastrarEvento"><i class="material-icons left">add</i>Novo Evento</a></li>
+	     </ul>
+	   </div>
+	 </nav>
+
+	<div th:each="evento : ${evento}" class="container">
+		<div class="row">
+		  <div class="col s12">
+		    <div class="card">
+		      <div class="card-image">
+		        <img src="images/balloons.jpg">
+		        <span th:text="${evento.nome}" class="card-title">Card Title</span>
+		        <a class="waves-effect waves-light btn"><i class="material-icons left">add</i>Adicionar convidado</a>
+		      </div>
+		      <div class="card-content">
+		        <p>Local: <span th:text="${evento.local}"></span></p>
+				<p>Data: <span th:text="${evento.data}"></span></p>
+				<p>Horário: <span th:text="${evento.horario}"></span></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="container">
+	<h2>Convidados</h2>
+	<div id="form-convidado">
+		<th:block th:include="fragments/mensagemValidacao"></th:block>
+			<form method="post">
+				CPF: <input type="text" value="" name="cpf"/>
+				Nome: <input type="text" value="" name="nomeConvidado"/>
+				<button type="submit"class="waves-effect waves-light btn"><i class="material-icons left">add</i>Adcionar</button>
+			</form>
+		</div>
+	</div>
+	
+	<div class="container">
+		<table>
+			<thead>
+				<th>Nome</th>
+				<th>CPF</th>
+				<th>Deletar</th>
+			</thead>
+			<tbody>
+				<tr th:each="convidado : ${convidados}">
+					<td class="s6"><span th:text="${convidado.nomeConvidado}"></span></td>
+					<td class="s3"><span th:text="${convidado.cpf}"></span></td>
+					<td><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.cpf)).build()}"><i class="material-icons">delete</i></a></td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+	
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+</body>
+</html>

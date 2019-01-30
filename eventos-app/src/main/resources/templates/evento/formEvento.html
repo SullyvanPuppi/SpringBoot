@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/header :: header"><title>Cadastrar Evento</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<nav>
+   <div class="nav-wrapper">
+     <a href="/eventos" class="brand-logo">Eventos App</a>
+     <ul class="right hide-on-med-and-down">
+       <li><a href="/eventos"><i class="material-icons left">list</i>Lista de eventos</a></li>
+     </ul>
+   </div>
+ </nav>
+
+<div class="container">
+	<th:block th:include="fragments/mensagemValidacao"></th:block>
+	<form method="post">
+		<div class="row">
+			Nome: <input type="text" value="" name="nome"/>
+		</div>
+	<div class="row">
+		<div class="input-field col s6">
+			Local: <input type="text" value="" name="local"/>
+		</div>
+		<div class="input-field col s3">
+			Data: <input type="date" value="" name="data"/>
+		</div>
+		<div class="input-field col s3">
+			Horário: <input type="time" value="" name="horario"/>
+		</div>
+	</div>	
+	<button type="submit"class="waves-effect waves-light btn"><i class="material-icons left">save</i>Salvar</button>
+	</form>
+</div>
+
+</body>
+</html>
