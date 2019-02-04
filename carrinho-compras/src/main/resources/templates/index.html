@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<head th:replace="fragments/header :: header">
+<meta charset="UTF-8">
+</head>
+<body>
+
+	<nav>
+	  <div class="nav-wrapper">
+	    <a th:href="${(#mvc.url('CC#index')).build()}" class="brand-logo">Carrinho Compras</a>
+	    <ul class="right hide-on-med-and-down">
+	    	<li><a id="btnNovoProduto"><i class="material-icons left">add</i>Novo Produto</a></li>
+	      	<li><a href="/criarCarrinho"><i class="material-icons left">add</i>Novo Carrinho</a></li>
+	      	<li><a href="/resetarSistema"><i class="material-icons left">clear_all</i>Resetar Sistema</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	
+	<div class="container">
+		<form id="formProduto" action="/cadastrarProduto" method="post">
+			Nome do produto<input type="text" value="" name="nomeProduto"/>
+			<button type="submit"class="waves-effect waves-light btn"><i class="material-icons left">save</i>Salvar</button>
+		</form>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+		   <div th:each="produto : ${produtos}" class="col s12 m3">
+		     <div class="card">
+		       <div class="card-image">
+		         <img src="images/balloons.jpg">
+		         <span th:text="${produto.descricao}" class="card-title"></span>
+		         <a class="btn-floating halfway-fab waves-effect waves-light red addItemCarrinho"><i class="material-icons">add</i></a>
+		       </div>
+		       <div class="card-content">
+		         Código do produto: <span class="codProduto" th:text="${produto.codigo}"></span>
+		         <form action="/adicionarItem" method="post">
+		         <input type="hidden" th:value="${produto.codigo}" name="codProduto"/>
+		         Valor unitário<input class="valorUnitario" type="number" step="any" min="0.1" value="" name="valorUnitario"/>
+		         Quantidade<input class="quantidade" type="number" min="1" value="" name="quantidade"/>
+		         </form>
+		       </div>
+		     </div>
+		   </div>
+		   
+		 </div>
+	</div>
+	
+	<div class="container">
+		<div th:each="carrinho : ${carrinhos}" class="collection carrinho">
+			<a th:id="${carrinho.codCarrinho}" th:codCliente="${carrinho.cliente.identificacaoCliente}" href="#!" class="collection-item">
+	       		<span>Identificação do cliente: </span>
+	       		<span class="identificacaoCliente" th:text="${carrinho.cliente.identificacaoCliente}"></span>
+	       		<span> - Carrinho: </span><span class="codCarrinho" th:text="${carrinho.codCarrinho}"></span>
+	       		<span class="deletar deletarCarrinho total"><i class="material-icons">delete</i></span>
+	       		<span class="total" th:text="${carrinho.valorTotal}"></span>
+	       		<span class="total">Total do carrinho R$ </span>	       		
+	       	</a>
+	       <div class="collection col s12 itens">
+	       		<div class="row">
+	       			<span class="col s1">&nbsp;</span>
+					<span class="col s5">Produto</span>
+					<div class="total col s3"><span>Quantidade do item</span></div>
+					<div class="total col s3"><span>Total do item R$</span></div>	       		
+	       		</div>
+				<div th:each="item : ${carrinho.itens}" class="collection-item row">
+					<span th:codProduto="${item.produto.codigo}" class="deletar deletarItem col s1"><i class="material-icons">clear</i></span>
+					<span class="titulo col s5" th:text="${item.produto.descricao}"></span>
+					<div class="total col s3"><span th:text="${item.quantidade}"></span></div>
+					<div class="total col s3"><span th:text="${item.valorTotal}"></span></div>		
+				</div>
+		   </div>
+	     </div>
+	</div>
+	
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+</body>
+</html>

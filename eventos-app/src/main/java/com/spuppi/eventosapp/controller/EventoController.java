@@ -27,7 +27,7 @@ public class EventoController {
 
 	@RequestMapping("/")
 	public String index() {
-		return "index";
+		return "redirect:/eventos";
 	}
 	
 	@RequestMapping(value="/cadastrarEvento", method=RequestMethod.GET)

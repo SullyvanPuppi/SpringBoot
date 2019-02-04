@@ -1,0 +1,30 @@
+nav{
+	background-color: darkcyan;
+	margin-bottom: 50px;
+}
+.collection .collection{
+	display: none;
+	margin: 0 20px 20px 20px;
+    border: none;
+}
+#formProduto{
+	display: none;
+	margin: 0 50px 100px 50px;
+}
+#formProduto button{
+	float: right;
+}
+.itens .titulo{
+	font-size: 1.4em;
+	padding-left: 0 !important;
+}
+.itens .total{
+	text-align: center;
+}
+.total{
+	float: right;
+}
+.deletar{
+	margin-left: 20px;
+	cursor: pointer;
+}
