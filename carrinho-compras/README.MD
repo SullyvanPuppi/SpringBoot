@@ -1,5 +1,7 @@
 Sitema demonstrativo de carrinho de compras
 
+Desenvolvido por: Sullyvan Puppi
+
 Requisitos chave
 
 -Criar carrinhos
