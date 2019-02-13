@@ -25,7 +25,7 @@ jQuery('#btnNovoProduto').click(function(){
 })
 
 jQuery('a.addItemCarrinho').click(function(){
-	var url = "/adicionarItem";
+	var url = "/carrinho-compras/adicionarItem";
 	dados = jQuery(this).closest('div.card').find('div.card-content');
 	var carrinho = jQuery('a.collection-item.active').find('span.codCarrinho').html();
 	var identificacaoCliente = jQuery('a.collection-item.active').find('span.identificacaoCliente').html();
@@ -39,40 +39,40 @@ jQuery('a.addItemCarrinho').click(function(){
 	}else{
 		jQuery.ajax({
 			  method: "POST",
-		  url: "/adicionarItem",
+		  url: "/carrinho-compras/adicionarItem",
 		  data: { identificacaoCliente : identificacaoCliente.trim(), codProduto : codProduto, valorUnitario : valorUnitario, quantidade : quantidade}
 		})
 		.done(function() {
-			window.location.replace('/?carrinho=' + carrinho.trim());
+			window.location.replace('/carrinho-compras/?carrinho=' + carrinho.trim());
 		})	
 	}	
 });
 
 jQuery('.collection-item .deletarCarrinho').click(function(){
-	var url = "/removerCarrinho";
+	var url = "/carrinho-compras/removerCarrinho";
 	var identificacaoCliente = jQuery(this).closest('a').find('span.identificacaoCliente').html();
 	jQuery.ajax({
 		method: "POST",
-		url: "/removerCarrinho",
+		url: "/carrinho-compras/removerCarrinho",
 		data: { identificacaoCliente : identificacaoCliente.trim()}
 	})
 	.done(function() {
-		window.location.replace('/');
+		window.location.replace('/carrinho-compras');
 	})
 })
 
 jQuery('.collection-item .deletarItem').click(function(){
-	var url = "/removerItem";
+	var url = "/carrinho-compras/removerItem";
 	var carrinho = jQuery(this).closest('div.collection.carrinho').find('a.active').attr('id');
 	var identificacaoCliente = jQuery(this).closest('div.collection.carrinho').find('a.active').attr('codcliente');
 	var codProduto = jQuery(this).attr('codproduto');
 	jQuery.ajax({
 		method: "POST",
-		url: "/removerItem",
+		url: "/carrinho-compras/removerItem",
 		data: { identificacaoCliente : identificacaoCliente, codProduto : codProduto}
 	})
 	.done(function() {
-		window.location.replace('/?carrinho=' + carrinho.trim());
+		window.location.replace('/carrinho-compras/?carrinho=' + carrinho.trim());
 	})
 })
 

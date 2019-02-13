@@ -2,9 +2,11 @@ package com.spuppi.carrinhocompras;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class CarrinhoComprasApplication {
+public class CarrinhoComprasApplication extends SpringBootServletInitializer{
+	//public class CarrinhoComprasApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CarrinhoComprasApplication.class, args);

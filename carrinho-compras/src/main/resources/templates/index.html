@@ -12,14 +12,14 @@
 	    <a th:href="${(#mvc.url('CC#index')).build()}" class="brand-logo">Carrinho Compras</a>
 	    <ul class="right hide-on-med-and-down">
 	    	<li><a id="btnNovoProduto"><i class="material-icons left">add</i>Novo Produto</a></li>
-	      	<li><a href="/criarCarrinho"><i class="material-icons left">add</i>Novo Carrinho</a></li>
-	      	<li><a href="/resetarSistema"><i class="material-icons left">clear_all</i>Resetar Sistema</a></li>
+	      	<li><a href="/carrinho-compras/criarCarrinho"><i class="material-icons left">add</i>Novo Carrinho</a></li>
+	      	<li><a href="/carrinho-compras/resetarSistema"><i class="material-icons left">clear_all</i>Resetar Sistema</a></li>
 	    </ul>
 	  </div>
 	</nav>
 	
 	<div class="container">
-		<form id="formProduto" action="/cadastrarProduto" method="post">
+		<form id="formProduto" action="/carrinho-compras/cadastrarProduto" method="post">
 			Nome do produto<input type="text" value="" name="nomeProduto"/>
 			<button type="submit"class="waves-effect waves-light btn"><i class="material-icons left">save</i>Salvar</button>
 		</form>
@@ -36,7 +36,7 @@
 		       </div>
 		       <div class="card-content">
 		         Código do produto: <span class="codProduto" th:text="${produto.codigo}"></span>
-		         <form action="/adicionarItem" method="post">
+		         <form action="/carrinho-compras/adicionarItem" method="post">
 		         <input type="hidden" th:value="${produto.codigo}" name="codProduto"/>
 		         Valor unitário<input class="valorUnitario" type="number" step="any" min="0.1" value="" name="valorUnitario"/>
 		         Quantidade<input class="quantidade" type="number" min="1" value="" name="quantidade"/>
