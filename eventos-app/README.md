@@ -1,5 +1,7 @@
 Sistema de gerenciamento de eventos, capaz cadastrar eventos bem como seus convidados.
 
+Desenvolvido por: Sullyvan Puppi
+
 Disponível em: http://java.spuppi.com/eventos-app
 
 Key features
