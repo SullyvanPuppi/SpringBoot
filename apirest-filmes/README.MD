@@ -4,7 +4,7 @@ Desenvolvido por: Sullyvan Puppi - spuppi.com - spuppi@gmail.com
 
 Demonstração de cadastro de consulta de filmes via API RESTful
 
-Disponível em: http://java.spuppi.com/apirest-filmes/swagger-ui.html
+15/02/2019 - API em implementação, breve links para testes.
 
 Recursos utilizados
 

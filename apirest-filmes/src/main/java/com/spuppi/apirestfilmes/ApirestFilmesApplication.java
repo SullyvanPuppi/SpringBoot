@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class ApirestFilmesApplication {
+//public class ApirestFilmesApplication extends SpringBootServletInitializer{ 
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApirestFilmesApplication.class, args);
