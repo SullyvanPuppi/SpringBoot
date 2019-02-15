@@ -10,6 +10,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @author Sullyvan Puppi
+ * spuppi.com - spuppi@gmail.com
+ * 15 de fev de 2019
+ *
+ */
 @Entity
 public class Filme {
 	

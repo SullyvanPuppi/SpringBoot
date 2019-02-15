@@ -25,6 +25,12 @@ import com.spuppi.apirestfilmes.repository.GeneroRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * @author Sullyvan Puppi
+ * spuppi.com - spuppi@gmail.com
+ * 15 de fev de 2019
+ *
+ */
 @Api(value="API REST Filmes")
 @RestController
 @RequestMapping("/filmes")
@@ -44,6 +50,20 @@ public class FilmesResource {
 	public @ResponseBody Iterable<Filme> listarFilmes(){
 		Iterable<Filme> listaFilmes = fr.findAll();
 		return listaFilmes;
+	}
+	
+	@ApiOperation(value = "Retorna a lista de genêros cadastrados")
+	@GetMapping(value = "/generos", produces = "application/json")
+	public @ResponseBody Iterable<Genero> listarGeneros(){
+		Iterable<Genero> listaGeneros = gr.findAll();
+		return listaGeneros;
+	}
+	
+	@ApiOperation(value = "Retorna a lista de atores cadastrados")
+	@GetMapping(value = "/atores", produces = "application/json")
+	public @ResponseBody Iterable<Ator> listarAtores(){
+		Iterable<Ator> listaAtores = ar.findAll();
+		return listaAtores;
 	}
 	
 	@ApiOperation(value = "Cadastrar novo filme")

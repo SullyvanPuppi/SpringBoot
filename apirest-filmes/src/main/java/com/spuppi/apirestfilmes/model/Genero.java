@@ -9,6 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * @author Sullyvan Puppi
+ * spuppi.com - spuppi@gmail.com
+ * 15 de fev de 2019
+ *
+ */
 @Entity
 public class Genero {
 	
