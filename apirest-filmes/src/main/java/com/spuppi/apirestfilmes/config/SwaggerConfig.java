@@ -30,7 +30,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.spuppi.apirestfilmes"))
-				.paths(regex("/filmes.*"))
+				.paths(regex("/.*"))
 				.build()
 				.apiInfo(metaInfo());		
 	}
